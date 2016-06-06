@@ -282,8 +282,7 @@ export default class ParamParser {
     ASTUtil.traverse(body, function(node, parent){
       // `return` in Function is not the body's `return`
       if (node.type.includes('Function')) {
-        this.skip();
-        return;
+        return null;
       }
 
       if (node.type !== 'ReturnStatement') return;
