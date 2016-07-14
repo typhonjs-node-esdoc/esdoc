@@ -1,6 +1,7 @@
 import AbstractDoc from './AbstractDoc.js';
 import ParamParser from '../Parser/ParamParser.js';
 import NamingUtil from '../Util/NamingUtil.js';
+import logger from 'color-logger';
 
 /**
  * Doc Class from Function declaration AST node.
@@ -19,7 +20,23 @@ export default class FunctionDoc extends AbstractDoc {
     if (this._value.name) return;
 
     if (this._node.id) {
-      this._value.name = this._node.id.name;
+      switch (this._node.id.type) {
+        case 'Identifier':
+          this._value.name = this._node.id.name;
+          break;
+
+        case 'StringLiteral':
+          this._value.name = this._node.id.value;
+          break;
+
+        case 'MemberExpression':
+          this._value.name = `${this._node.id.object.name}.${this._node.id.property.name}`;
+          break;
+
+        default:
+          logger.w(`can not resolve name.`);
+          this._value.name = undefined;
+      }
     } else {
       this._value.name = NamingUtil.filePathToName(this._pathResolver.filePath);
     }
