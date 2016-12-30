@@ -20,7 +20,7 @@ describe('Nav:', ()=> {
       assert.includes(doc, '[data-ice="doc"]:nth-of-type(34) a', 'function/index.html#static-function-myFunction1', 'href');
 
       // variable
-      assert.includes(doc, '[data-ice="doc"]:nth-of-type(46)', 'myExport10');
+      assert.includes(doc, '[data-ice="doc"]:nth-of-type(46)', 'VMyExport11');
       assert.includes(doc, '[data-ice="doc"]:nth-of-type(54)', 'myVariable1');
       assert.includes(doc, '[data-ice="doc"]:nth-of-type(54) a', 'variable/index.html#static-variable-myVariable1', 'href');
 

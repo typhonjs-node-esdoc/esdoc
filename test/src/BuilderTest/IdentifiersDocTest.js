@@ -30,7 +30,7 @@ describe('Identifiers:', ()=> {
   /** @test {IdentifiersDocBuilder#_buildIdentifierDoc} */
   it('has variable summary.', ()=>{
     find(doc, '[data-ice="variableSummary"]', (doc)=>{
-      assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public myExport10: MyExport10');
+      assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public MyExport11: * this is indirect instance export');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(7)', 'public myVariable1: Object this is myVariable1 desc.');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(9)', 'public myVariable3: number this is myVariable3 desc.');
     });

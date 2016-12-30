@@ -68,7 +68,7 @@ export function myFunction9(p1 = {}) {
  * @param {number} p1 - this is p1.
  */
 function myFunctionSeparateExport1(p1) {}
-export default myFunctionSeparateExport1;
+export {myFunctionSeparateExport1};
 
 /**
  * this is myFunctionSeparateExport2.

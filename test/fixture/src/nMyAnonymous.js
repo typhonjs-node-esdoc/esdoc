@@ -18,6 +18,6 @@ export default class {
  * this is anonymous function.
  * @returns {number}
  */
-export default function(){
+export function nMyAnonymous1(){
   return 0;
 }

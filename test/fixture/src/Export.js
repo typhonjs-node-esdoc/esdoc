@@ -22,11 +22,11 @@ class MyExport2 {
   /** this is method1. */
   method1(){}
 }
-
+let myExport2 = new MyExport2();
 /**
  * this is MyExport2 instance.
  */
-export default new MyExport2();
+export {myExport2};
 
 /**
  * this is MyExport3.
@@ -39,7 +39,7 @@ let myExport3 = new MyExport3();
 /**
  * this is MyExport3 instance.
  */
-export default myExport3;
+export {myExport3};
 
 /**
  * this is MyExport4.
@@ -104,7 +104,8 @@ class MyExport11 {}
 /** @ignore */
 let obj = {};
 obj.MyExport11 = MyExport11;
+let MyExport11 = new obj.MyExport11();
 /**
  * this is indirect instance export
  */
-export default new obj.MyExport11();
+export {MyExport11};

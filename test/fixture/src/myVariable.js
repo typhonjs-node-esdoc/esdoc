@@ -27,7 +27,7 @@ export let myVariable5 = [];
  * @type {{foo: number, bar: string}}
  */
 let myVariableSeparateExport1 = {};
-export default myVariableSeparateExport1;
+export {myVariableSeparateExport1};
 
 /**
  * this is myVariableSeparateExport2.

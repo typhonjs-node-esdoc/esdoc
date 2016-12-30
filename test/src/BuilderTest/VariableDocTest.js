@@ -7,7 +7,7 @@ describe('MyVariable:', ()=> {
   /** @test {SingleDocBuilder#_buildSingleDoc} */
   it('has summary.', ()=>{
     find(doc, '[data-ice="summary"]', (doc)=>{
-      assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public myExport10: MyExport10');
+      assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public MyExport11: * this is indirect instance export');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(3)', 'public myExport2: MyExport2');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(4)', 'public myExport3: MyExport3');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(5)', 'public myExport4: MyExport4');
@@ -20,25 +20,25 @@ describe('MyVariable:', ()=> {
       assert.includes(doc, '[data-ice="target"]:nth-of-type(12)', 'public myVariableSeparateExport1: {foo: number, bar: string} this is myVariableSeparateExport1.');
       assert.includes(doc, '[data-ice="target"]:nth-of-type(13)', 'public myVariableSeparateExport2: Object this is myVariableSeparateExport2.');
 
-      assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a', 'variable/index.html#static-variable-myExport1', 'href');
+      assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a', 'variable/index.html#static-variable-MyExport11', 'href');
     });
   });
 
   /** @test {SingleDocBuilder#_buildSingleDoc} */
   it('has detail.', ()=> {
-    find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc)=> {
+    find(doc, '[data-ice="detail"]:nth-of-type(2)', (doc)=> {
       assert.includes(doc, '#static-variable-myExport10', 'public myExport10: MyExport10');
       assert.includes(doc, '[data-ice="importPath"]', "import {myExport10} from 'esdoc-test-fixture/src/Export.js'");
     });
 
     find(doc, '[data-ice="detail"]:nth-of-type(3)', (doc)=> {
       assert.includes(doc, '#static-variable-myExport2', 'public myExport2: MyExport2');
-      assert.includes(doc, '[data-ice="importPath"]', "import myExport2 from 'esdoc-test-fixture/src/Export.js'");
+      assert.includes(doc, '[data-ice="importPath"]', "import {myExport2} from 'esdoc-test-fixture/src/Export.js'");
     });
 
     find(doc, '[data-ice="detail"]:nth-of-type(4)', (doc)=> {
       assert.includes(doc, '#static-variable-myExport3', 'public myExport3: MyExport3');
-      assert.includes(doc, '[data-ice="importPath"]', "import myExport3 from 'esdoc-test-fixture/src/Export.js'");
+      assert.includes(doc, '[data-ice="importPath"]', "import {myExport3} from 'esdoc-test-fixture/src/Export.js'");
     });
 
     find(doc, '[data-ice="detail"]:nth-of-type(5)', (doc)=> {
@@ -75,7 +75,7 @@ describe('MyVariable:', ()=> {
 
     find(doc, '[data-ice="detail"]:nth-of-type(12)', (doc)=> {
       assert.includes(doc, '#static-variable-myVariableSeparateExport1', 'public myVariableSeparateExport1: {foo: number, bar: string}');
-      assert.includes(doc, '[data-ice="importPath"]', "import myVariableSeparateExport1 from 'esdoc-test-fixture/src/myVariable.js'");
+      assert.includes(doc, '[data-ice="importPath"]', "import {myVariableSeparateExport1} from 'esdoc-test-fixture/src/myVariable.js'");
     });
 
     find(doc, '[data-ice="detail"]:nth-of-type(13)', (doc)=> {

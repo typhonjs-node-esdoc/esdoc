@@ -74,7 +74,7 @@ describe('MyFunction:', ()=>{
 
     find(doc, '[data-ice="detail"]:nth-of-type(11)', (doc)=>{
       assert.includes(doc, '#static-function-myFunctionSeparateExport1', 'public myFunctionSeparateExport1(p1: number)');
-      assert.includes(doc, '[data-ice="importPath"]', "import myFunctionSeparateExport1 from 'esdoc-test-fixture/src/myFunction.js'");
+      assert.includes(doc, '[data-ice="importPath"]', "import {myFunctionSeparateExport1} from 'esdoc-test-fixture/src/myFunction.js'");
     });
 
     find(doc, '[data-ice="detail"]:nth-of-type(12)', (doc)=>{
